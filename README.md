@@ -326,28 +326,7 @@ request(options, function (error, response) {
 
 
 
-### Case 12 : Invalid private key
-```javascript
-{
-    "type": "ValidationError",
-    "message": "ValidationError",
-    "stack": [],
-    "details": "Wrong Private key"
-}
-```
-
-
-### Case 12 : Invalid private key
-```javascript
-{
-    "type": "ValidationError",
-    "message": "ValidationError",
-    "stack": [],
-    "details": "Wrong Private key"
-}
-```
-
-### Case 12 : Invalid barcode tolerance
+### Case 13 : Invalid barcode tolerance
 ```javascript
 {
     "type": "ValidationError",
@@ -357,7 +336,7 @@ request(options, function (error, response) {
 }
 ```
 
-### Case 13 : Invalid ocr tolerance
+### Case 14 : Invalid ocr tolerance
 ```javascript
 {
     "type": "ValidationError",
@@ -367,7 +346,7 @@ request(options, function (error, response) {
 }
 ```
 
-### Case 14 : Invalid front tolerance
+### Case 15 : Invalid front tolerance
 ```javascript
 {
     "type": "ValidationError",
@@ -377,7 +356,7 @@ request(options, function (error, response) {
 }
 ```
 
-### Case 15 : Invalid back tolerance
+### Case 16 : Invalid back tolerance
 ```javascript
 {
     "type": "ValidationError",
@@ -388,12 +367,12 @@ request(options, function (error, response) {
 ```
 
 
-### Case 15 : Invalid face_match tolerance
+### Case 17 : Invalid face_match tolerance
 ```javascript
 {
     "type": "ValidationError",
     "message": "ValidationError",
     "stack": [],
-    "details": "unvalid face_match tolerance"
+    "details": "unvalid Face match tolerance"
 }
 ```
