@@ -1,0 +1,756 @@
+<!--
+ API Documentation HTML Template  - 1.0.0
+ Copyright © 2016 Florian Nicolas
+ Licensed under the MIT license.
+ https://github.com/ticlekiwi/API-Documentation-HTML-Template
+ !-->
+<!DOCTYPE html>
+<html class="no-js" lang="en"> 
+    <head>
+        <meta charset="utf-8">
+        <title>API - Documentation</title>
+        <meta name="description" content="">
+        <meta name="author" content="ticlekiwi">
+
+        <meta http-equiv="cleartype" content="on">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="static/css/hightlightjs-dark.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,500|Source+Code+Pro:300" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/style.css" media="all">
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+
+    <body>
+        <div class="left-menu">
+            <div class="content-logo">
+                <img alt="platform by Emily van den Heever from the Noun Project" title="platform by Emily van den Heever from the Noun Project" src="static/img/logo-1.png" height="70px"  />
+                <span>API Documentation</span>
+            </div>
+            <div class="content-menu">
+                <ul>
+                    <li class="scroll-to-link active" data-target="get-started">
+                        <a>GET STARTED</a>
+                    </li>
+                    <li class="scroll-to-link" data-target="valid-data">
+                        <a>Valid data</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="wrong-selfie">
+                        <a>Wrong person in selfie</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-back">
+                        <a>invalid back</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-front">
+                        <a>invalid front</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-front-selfie">
+                        <a>invalid front and selfie</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-back-selfie">
+                        <a>invalid back and selfie</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-front-back">
+                        <a>invalid front and back</a>
+                    </li>
+
+
+                    <li class="scroll-to-link" data-target="invalid-front-back-selfie">
+                        <a>invalid F - B - S</a>
+                    </li>
+                    
+                    <li class="scroll-to-link" data-target="other-front-cin">
+                        <a>front from other cin</a>
+                    </li>
+
+
+                    <li class="scroll-to-link" data-target="other-back-cin">
+                        <a>back from other cin</a>
+                    </li>
+
+
+                    <li class="scroll-to-link" data-target="wrong-public_key">
+                        <a>Invalid public key</a>
+                    </li>
+
+
+                    <li class="scroll-to-link" data-target="wrong-private_key">
+                        <a>Invalid private key</a>
+                    </li>
+
+
+                    <li class="scroll-to-link" data-target="wrong-barcode_tolerance">
+                        <a>Invalid barcode tolerance</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-ocr_tolerance">
+                        <a>Invalid ocr tolerance</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-front_tolerance">
+                        <a>Invalid front tolerance</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-back_tolerance">
+                        <a>Invalid back tolerance</a>
+                    </li>
+
+                    <li class="scroll-to-link" data-target="invalid-face_match_tolerance">
+                        <a>Invalid face tolerance</a>
+                    </li>
+
+                  
+                </ul>
+            </div>
+        </div>
+        <div class="content-page">
+            <div class="content-code"></div>
+            <div class="content">
+                <div class="overflow-hidden content-section" id="content-get-started">
+                    <h1 id="get-started">Get started</h1>
+                    <pre>
+    API Endpoint 
+    https://api.kernelsnap.com/api/verify
+
+
+                </pre>
+                    <p>
+                        This documentation offers programatic access to KernelSnap‘s API.<br>
+                        Please note that in order to be able to use the API an account should be created. API keys will be offered once the account is created.  
+                    </p>
+                    <p>
+                        To use this API, you need an <strong>API key</strong>. Please contact us at <a href="kernelsnap@gmail.com">kernelsnap@gmail.com</a> to get your own API key. 
+                    </p>
+                </div>
+                <div class="overflow-hidden content-section" id="content-get-characters">
+                    <h2 id="valid-data">Valid Data</h2>
+                    <pre><code class="bash">
+# Here is a curl example
+
+curl --location --request POST 'https://api.kernelsnap.com/api/verify' \
+--form 'front=@/Users/waelbenamara/Desktop/KYC-Service/testimages/front.JPG' \
+--form 'back=@/Users/waelbenamara/Desktop/KYC-Service/testimages/IMG_0694.JPG' \
+--form 'selfie=@/Users/waelbenamara/Desktop/KYC-Service/testimages/selfiee.JPG' \
+--form 'public_key=MIIBEDCBwAYHKoZIzjEATCBtAJJAOmTC/xj8JQyfiT0NbLkgUjhjesBB+TS103SmnADbYoH/yjSnt/P1jJNpAm7D4mgDcvfUOTeTMbng9D31nHx9DjL9omVZXmA+wIdAI4eUC9deOsq3bdzpq7CKPUW4yRJNGYcDYqMgBcCSDjdIXjh5wcUkhx29OZp692raKMgPbyls/uLDcqnVLIrACiwa88GJ9LhI699za7whaWlLEZvCn/6d4RseqijzNG1svzA7TssIANLAAJIYHl3t6VR8n77LaxqCVC+KPpIVctkvfBSsz7A1PiybxM9Z7F1JWLn1fMELp02wGKursmwJ4jcl5Wj4sh+VdJSlYmq/+Dmh+iG' \
+--form 'private_key=OpyL39DXSn3WyxA8dH0gLpU1+RXPrwE9AVXyqwtvv2Se7damu3D3PG5+r9YESQQ' \
+--form 'country_code=TN' \
+--form 'document_type=CIN' \
+--form 'front_tolerance=3' \
+--form 'back_tolerance=3' \
+--form 'face_match_tolerance=3' \
+--form 'barcode_tolerance=3' \
+--form 'ocr_tolerance=3'
+                </code></pre>
+
+     <pre><code class="bash">
+# Here is a js axios example
+ var axios = require('axios');
+var FormData = require('form-data');
+var fs = require('fs');
+var data = new FormData();
+data.append('front', fs.createReadStream('/Users/waelbenamara/Desktop/KYC-Service/testimages/front.JPG'));
+data.append('back', fs.createReadStream('/Users/waelbenamara/Desktop/KYC-Service/testimages/IMG_0694.JPG'));
+data.append('selfie', fs.createReadStream('/Users/waelbenamara/Desktop/KYC-Service/testimages/selfiee.JPG'));
+data.append('public_key', 'MIIBEDCBwAYHKoZIzjgEATCBtAJJAOmTC/xj8JQyfiT0NbLkgUjhjesBB+TS103SmnADbYoH/yjSnt/P1jJNpAm7D4mgDcvfUOTeTMbng9D31nHx9DjL9omVZXmA+wIdAI4eUC9deOsq3bdzpq7CKPUW4yRJNGYcDYqMgBcCSDjdIXjh5wcUkhx29OZp692raKMgPbyls/uLDcqnVLIrACiwa88GJ9LhI699za7whaWlLEZvCn/6d4RseqijzNG1svzA7TssIANLAAJIYHl3t6VR8n77LaxqCVC+KPpIVctkvfBSsz7A1PiybxM9Z7F1JWLn1fMELp02wGKursmwJ4jcl5Wj4sh+VdJSlYmq/+Dmh+iG');
+data.append('private_key', 'OpyL39DXSn3WyxA8dgH0gLpU1+RXPrwE9AVXyqwtvv2Se7damu3D3PG5+r9YESQQ');
+data.append('country_code', 'TN');
+data.append('document_type', 'CIN');
+data.append('front_tolerance', '3');
+data.append('back_tolerance', '3');
+data.append('face_match_tolerance', '3');
+data.append('barcode_tolerance', '3');
+data.append('ocr_tolerance', '3');
+var config = {
+    method: 'post',
+    url: 'https://api.kernelsnap.com/api/verify',
+    headers: { 
+    ...data.getHeaders()
+    },
+    data : data
+};
+
+axios(config)
+.then(function (response) {
+    console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+    console.log(error);
+});
+
+                                    </code></pre>
+                    <p>
+                        In order to get a valid data response it is required to provide valid input :<br>
+                        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+                    </p>
+                    <br>
+                    <pre><code class="json">
+Result example :
+
+{
+    "cin_id_barcode": "09634285",
+    "cin_id_ocr": "09634285",
+    "cin_nb_barcode": "096342850230140619",
+    "description": "Success!",
+    "face_match": true,
+    "issuance_day": "14",
+    "issuance_month": "06",
+    "issuance_year": "19",
+    "kyc_recommendation": "accepted",
+    "metadata": {
+        "make": "Apple",
+        "model": "iPhone 6s",
+        "software": "12.4.1",
+        "time": "2020:06:23 19:32:30"
+    },
+    "score": 0,
+    "two_factor_verif": true,
+    "verif_back": true,
+    "verif_front": true
+}
+                </code></pre>
+                    <h4>QUERY PARAMETERS</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>front</td>
+                                <td>File</td>
+                                <td>Image file corresponding to the front image of the id card</td>
+                            </tr>
+                            <tr>
+                                <td>back</td>
+                                <td>File</td>
+                                <td>Image file corresponding to the back image of the id card</td>
+                            </tr>
+
+                            <tr>
+                                <td>selfie</td>
+                                <td>File</td>
+                                <td>Image file corresponding to the selfie image of the person</td>
+                            </tr>
+
+                            <tr>
+                                <td>public_key</td>
+                                <td>String</td>
+                                <td>Your public key</td>
+                            </tr>
+                            
+
+                            <tr>
+                                <td>private_key</td>
+                                <td>String</td>
+                                <td>Your private key</td>
+                            </tr>
+
+                            <tr>
+                                <td>country_code</td>
+                                <td>String</td>
+                                <td>Only TN is available for the moment</td>
+                            </tr>
+
+                            <tr>
+                                <td>document_type</td>
+                                <td>String</td>
+                                <td>Only CIN is available for the moment</td>
+                            </tr>
+
+                            <tr>
+                                <td>front_tolerance</td>
+                                <td>Integer</td>
+                                <td>Takes values between 1 and 3 (1 is recommended)</td>
+                            </tr>
+
+                            <tr>
+                                <td>back_tolerance</td>
+                                <td>Integer</td>
+                                <td>Takes values between 1 and 3 (1 is recommended)</td>
+                            </tr>
+
+                            <tr>
+                                <td>face_match_tolerance</td>
+                                <td>Integer</td>
+                                <td>Takes values between 1 and 3 (3 is recommended)</td>
+                            </tr>
+
+                            <tr>
+                                <td>barcode_tolerance</td>
+                                <td>Integer</td>
+                                <td>Takes values between 1 and 3 (3 is recommended)</td>
+                            </tr>
+
+                            <tr>
+                                <td>ocr_tolerance</td>
+                                <td>Integer</td>
+                                <td>Takes values between 1 and 3 (3 is recommended)</td>
+                            </tr>
+
+                           
+                        </tbody>
+                    </table>                    
+                </div>
+
+
+                <div class="overflow-hidden content-section" id="content-get-characters">
+                    <h2 id="wrong-selfie">Wrong Person in selfie</h2>
+
+                    <p>
+                       This case represents when the selfie and the image from the id are not identical<br>
+                        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+                        
+                    </p>
+                    <br>
+                    <pre><code class="json">
+Result example :
+
+{
+    "description": "Faces are not identical",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": true,
+    "verif_front": true
+}
+
+                </code>
+            </pre>
+
+                   
+                </div>
+
+
+
+
+  <div class="overflow-hidden content-section" id="content-get-characters">
+                    <h2 id="invalid-back">Invalid back</h2>
+
+                    <p>
+                        When the back image is not a CIN<br>
+                        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+                    </p>
+                    <br>
+                    <pre><code class="json">
+Result example :
+
+{
+    "description": "Back is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": true
+}
+
+                </code>
+            </pre>
+
+                   
+ </div>
+
+
+ <div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="invalid-back-selfie">Invalid back and selfie</h2>
+
+    <p>
+        When the back in not a CIN and the selfie is invalid<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+"description": "Back is not valid",
+"face_match": false,
+"kyc_recommendation": "rejected",
+"score": 0,
+"two_factor_verif": false,
+"verif_back": false,
+"verif_front": true
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="invalid-front">Invalid front</h2>
+
+    <p>
+        When the front is not from a CIN<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "description": "Front is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": false
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="invalid-front-selfie">Invalid front and selfie</h2>
+
+    <p>
+        When the front is not from a CIN and the selfie is invalid<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "description": "Front is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": false
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="invalid-front-back">Invalid front and back </h2>
+
+    <p>
+        When the front is not from a CIN<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "description": "Front is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": false
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="invalid-front-back-selfie">Invalid front, back and selfie </h2>
+
+    <p>
+        When the front and back are not from a CIN and the selfie is unvalid<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "description": "Front is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": false
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="other-front-cin"> Front from other CIN </h2>
+
+    <p>
+        When the front corresponds to a CIN of a different person<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "description": "Faces are not identical",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": true,
+    "verif_front": true
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="other-back-cin"> Back from other CIN </h2>
+
+    <p>
+        When the back corresponds to a CIN of a different person<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "cin_id_barcode": "07403519",
+    "cin_id_ocr": "09634285",
+    "cin_nb_barcode": "074035190106141204",
+    "description": "Front and Back are not compatible",
+    "face_match": true,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": true,
+    "verif_front": true
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="wrong-public_key"> Invalid public_key </h2>
+
+    <p>
+        When providing invalid public key<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "type": "NotFoundError",
+    "message": "NotFoundError",
+    "stack": [],
+    "details": "User not found. Please register"
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="wrong-private_key"> Invalid private_key </h2>
+
+    <p>
+        When providing invalid private key<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "type": "ValidationError",
+    "message": "ValidationError",
+    "stack": [],
+    "details": "Wrong Private key"
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="wrong-barcode_tolerance"> Invalid barcode tolerance </h2>
+
+    <p>
+        When providing invalid barcode tolerance<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "type": "ValidationError",
+    "message": "ValidationError",
+    "stack": [],
+    "details": "unvalid barcode tolerance"
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="invalid-ocr_tolerance"> Invalid ocr tolerance </h2>
+
+    <p>
+        When providing invalid ocr tolerance<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "type": "ValidationError",
+    "message": "ValidationError",
+    "stack": [],
+    "details": "unvalid ocr tolerance"
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="invalid-front_tolerance"> Invalid front tolerance </h2>
+
+    <p>
+        When providing invalid front tolerance<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "type": "ValidationError",
+    "message": "ValidationError",
+    "stack": [],
+    "details": "unvalid Front tolerance"
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="invalid-back_tolerance"> Invalid back tolerance </h2>
+
+    <p>
+        When providing invalid back tolerance<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "type": "ValidationError",
+    "message": "ValidationError",
+    "stack": [],
+    "details": "unvalid Back tolerance"
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+
+
+
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h2 id="face_match_tolerance"> Invalid face_match tolerance </h2>
+
+    <p>
+        When providing invalid face_match tolerance<br>
+        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+    </p>
+    <br>
+    <pre><code class="json">
+Result example :
+
+{
+    "type": "ValidationError",
+    "message": "ValidationError",
+    "stack": [],
+    "details": "unvalid Face match tolerance"
+}
+
+</code>
+</pre>
+
+   
+</div>
+
+            </div>
+            <div class="content-code"></div>
+        </div>
+        <script src="static/js/libs/jquery.js"></script>
+        <script src="static/js/script.js"></script>
+    </body>
+</html>
