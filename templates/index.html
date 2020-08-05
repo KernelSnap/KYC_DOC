@@ -34,78 +34,17 @@
                     <li class="scroll-to-link active" data-target="get-started">
                         <a>GET STARTED</a>
                     </li>
-                    <li class="scroll-to-link" data-target="valid-data">
-                        <a>Valid data</a>
+                    <li class="scroll-to-link active" data-target="enqueue">
+                        <a>Enqueue request</a>
                     </li>
 
-                    <li class="scroll-to-link" data-target="wrong-selfie">
-                        <a>Wrong person in selfie</a>
+                    <li class="scroll-to-link active" data-target="dequeue">
+                        <a>Dequeue response</a>
+                    </li>
+                    <li class="scroll-to-link" data-target="results-examples">
+                        <a>Results examples</a>
                     </li>
 
-                    <li class="scroll-to-link" data-target="invalid-back">
-                        <a>invalid back</a>
-                    </li>
-
-                    <li class="scroll-to-link" data-target="invalid-front">
-                        <a>invalid front</a>
-                    </li>
-
-                    <li class="scroll-to-link" data-target="invalid-front-selfie">
-                        <a>invalid front and selfie</a>
-                    </li>
-
-                    <li class="scroll-to-link" data-target="invalid-back-selfie">
-                        <a>invalid back and selfie</a>
-                    </li>
-
-                    <li class="scroll-to-link" data-target="invalid-front-back">
-                        <a>invalid front and back</a>
-                    </li>
-
-
-                    <li class="scroll-to-link" data-target="invalid-front-back-selfie">
-                        <a>invalid F - B - S</a>
-                    </li>
-                    
-                    <li class="scroll-to-link" data-target="other-front-cin">
-                        <a>front from other cin</a>
-                    </li>
-
-
-                    <li class="scroll-to-link" data-target="other-back-cin">
-                        <a>back from other cin</a>
-                    </li>
-
-
-                    <li class="scroll-to-link" data-target="wrong-public_key">
-                        <a>Invalid public key</a>
-                    </li>
-
-
-                    <li class="scroll-to-link" data-target="wrong-private_key">
-                        <a>Invalid private key</a>
-                    </li>
-
-
-                    <li class="scroll-to-link" data-target="wrong-barcode_tolerance">
-                        <a>Invalid barcode tolerance</a>
-                    </li>
-
-                    <li class="scroll-to-link" data-target="invalid-ocr_tolerance">
-                        <a>Invalid ocr tolerance</a>
-                    </li>
-
-                    <li class="scroll-to-link" data-target="invalid-front_tolerance">
-                        <a>Invalid front tolerance</a>
-                    </li>
-
-                    <li class="scroll-to-link" data-target="invalid-back_tolerance">
-                        <a>Invalid back tolerance</a>
-                    </li>
-
-                    <li class="scroll-to-link" data-target="invalid-face_match_tolerance">
-                        <a>Invalid face tolerance</a>
-                    </li>
 
                   
                 </ul>
@@ -127,11 +66,13 @@
                         Please note that in order to be able to use the API an account should be created. API keys will be offered once the account is created.  
                     </p>
                     <p>
-                        To use this API, you need an <strong>API key</strong>. Please contact us at <a href="kernelsnap@gmail.com">kernelsnap@gmail.com</a> to get your own API key. 
+                        To use this API, you need an <strong>API key</strong>. Please contact us at <a href="contact@kernelsnap.com">contact@kernelsnap.com</a> to get your own API key. 
                     </p>
+                    <p>Please note that any request will be temporarily stored in a queue. Once it is executed the output will be stored in a database and it will be permenantly deleted once the user retrieves the data</p>
+                    <p>Execution time can vary between 4 minutes - 20 minutes</p>
                 </div>
                 <div class="overflow-hidden content-section" id="content-get-characters">
-                    <h2 id="valid-data">Valid Data</h2>
+                    <h2 id="enqueue">Enqueue Request</h2>
                     <pre><code class="bash">
 # Here is a curl example
 
@@ -139,8 +80,8 @@ curl --location --request POST 'https://api.kernelsnap.com/api/verify' \
 --form 'front=@/Users/waelbenamara/Desktop/KYC-Service/testimages/front.JPG' \
 --form 'back=@/Users/waelbenamara/Desktop/KYC-Service/testimages/IMG_0694.JPG' \
 --form 'selfie=@/Users/waelbenamara/Desktop/KYC-Service/testimages/selfiee.JPG' \
---form 'public_key=MIIBEDCBwAYHKoZIzjEATCBtAJJAOmTC/xj8JQyfiT0NbLkgUjhjesBB+TS103SmnADbYoH/yjSnt/P1jJNpAm7D4mgDcvfUOTeTMbng9D31nHx9DjL9omVZXmA+wIdAI4eUC9deOsq3bdzpq7CKPUW4yRJNGYcDYqMgBcCSDjdIXjh5wcUkhx29OZp692raKMgPbyls/uLDcqnVLIrACiwa88GJ9LhI699za7whaWlLEZvCn/6d4RseqijzNG1svzA7TssIANLAAJIYHl3t6VR8n77LaxqCVC+KPpIVctkvfBSsz7A1PiybxM9Z7F1JWLn1fMELp02wGKursmwJ4jcl5Wj4sh+VdJSlYmq/+Dmh+iG' \
---form 'private_key=OpyL39DXSn3WyxA8dH0gLpU1+RXPrwE9AVXyqwtvv2Se7damu3D3PG5+r9YESQQ' \
+--form 'public_key=MIIBEDCBwAYHKoZIzjEATCBtAJAOmTC/xj8JQyfiT0NbLkgUjhjesBB+TS103SmnADbYoH/yjSnt/P1jJNpAm7D4mgDcvfUOTeTMbng9D31nHx9DjL9omVZXmA+wIdAI4eUC9deOsq3bdzpq7CKPUW4yRJNGYcDYqMgBcCSDjdIXjh5wcUkhx29OZp692raKMgPbyls/uLDcqnVLIrACiwa88GJ9LhI699za7whaWlLEZvCn/6d4RseqijzNG1svzA7TssIANLAAJIYHl3t6VR8n77LaxqCVC+KPpIVctkvfBSsz7A1PiybxM9Z7F1JWLn1fMELp02wGKursmwJ4jcl5Wj4sh+VdJSlYmq/+Dmh+iG' \
+--form 'private_key=OpyL39DXSn3WyxA8dH0gLpU1RXPrwE9AVXyqwtvv2Se7damu3D3PG5+r9YESQQ' \
 --form 'country_code=TN' \
 --form 'document_type=CIN' \
 --form 'front_tolerance=3' \
@@ -187,34 +128,19 @@ axios(config)
 
                                     </code></pre>
                     <p>
-                        In order to get a valid data response it is required to provide valid input :<br>
+                        This operation will place the request in a queue until it gets executed. Once the request is received the user will receive an id for that specific request. Data should be transmitted as FormData.<br>
                         <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
                     </p>
                     <br>
                     <pre><code class="json">
-Result example :
+Response example :
 
 {
-    "cin_id_barcode": "09634285",
-    "cin_id_ocr": "09634285",
-    "cin_nb_barcode": "096342850230140619",
-    "description": "Success!",
-    "face_match": true,
-    "issuance_day": "14",
-    "issuance_month": "06",
-    "issuance_year": "19",
-    "kyc_recommendation": "accepted",
-    "metadata": {
-        "make": "Apple",
-        "model": "iPhone 6s",
-        "software": "12.4.1",
-        "time": "2020:06:23 19:32:30"
-    },
-    "score": 0,
-    "two_factor_verif": true,
-    "verif_back": true,
-    "verif_front": true
+    "messsage": "Your request is being processed",
+    "request_id": "5f2a67ad2a50ff22c63be8a3"
 }
+
+
                 </code></pre>
                     <h4>QUERY PARAMETERS</h4>
                     <table>
@@ -305,16 +231,421 @@ Result example :
 
 
                 <div class="overflow-hidden content-section" id="content-get-characters">
-                    <h2 id="wrong-selfie">Wrong Person in selfie</h2>
+                    <h2 id="dequeue">Dequeue Request</h2>
+                    <pre><code class="bash">
+# Here is a curl example
+
+curl --location --request POST 'https://api.kernelsnap.com/api/results' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "public_key": "MIIBETCBwAYHKoZIzjgEATCBtAJJANAwasS4Lm6T53Osfq+EzirfpzP32npRbMAZVbxglwbA5nrJkMZrHh8qlRHYI4k3vB6hHM+y8JbiX4KYrL3Vbqls8xFdkYC4owIdALXg3DW+VOJyJmNgHjJ2cph36pgJW5qrFqDtCxMCSAE+aYsdbQcezPGN/DIOjFB84PquTPC9g2l7FoXeZOVNbQ+utNbSsIbS4yMuupUqst+rT+dyLQIwtN5kCWfieXlORNLTbHFNPwNMAAJJAM+7IBg4zo1bWWltb8hGH9SCbo8PxEh3Tqsoi9nE59/qc4lR9s6l88YAHbXIILgpw3dpbALwPvlBXXcJFVf7HM9RgcVid4kbGA==",
+    "private_key": "jjRxzJvNcMIhK4AsfkbT8V29jQK4V13oLNxu98OZif1f2j5Kef3aEOauRje9RRZf"
+}'
+                </code></pre>
+
+     <pre><code class="bash">
+# Here is a js axios example
+var axios = require('axios');
+var data = JSON.stringify({"public_key":"MIIBETCBwbA5nrJkMZrHh8qlRHYI4k3vB6hHM+y8JbiX4KYrL3Vbqls8xFdkYC4owIdALXg3DW+VOJyJmNgHjJ2cph36pgJW5qrFqDtCxMCSAE+aYsdbQcezPGN/DIOjFB84PquTPC9g2l7FoXeZOVNbQ+utNbSsIbS4yMuupUqst+rT+dyLQIwtN5kCWfieXlORNLTbHFNPwNMAAJJAM+7IBg4zo1bWWltb8hGH9SCbo8PxEh3Tqsoi9nE59/qc4lR9s6l88YAHbXIILgpw3dpbALwPvlBXXcJFVf7HM9RgcVid4kbGA==","private_key":"jjRxzJvNcMIhK4AsfkbT8V29jQK4V15Kef3aEOauRje9RRZf"});
+
+var config = {
+  method: 'post',
+  url: 'https://api.kernelsnap.com/api/results',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+                                    </code></pre>
+                    <p>
+                        This operation allows the user retrieve the outputs after the execution has complete. The returned response is an array containing all the responses of all completed requests. Data should be transmitted as json<br>
+                        <code class="higlighted">https://api.kernelsnap.com/api/results</code>
+                    </p>
+                    <br>
+                    <pre><code class="json">
+Response example :
+
+[
+    {
+        "_id": "5f2689e42a50ff22c63be866",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f2689f42a50ff22c63be86a",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f2689f82a50ff22c63be86e",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f268a062a50ff22c63be872",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f268a0b2a50ff22c63be876",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f268a0f2a50ff22c63be87a",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f268a1c2a50ff22c63be87e",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f268a222a50ff22c63be882",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f268a322a50ff22c63be886",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f268a3e2a50ff22c63be88a",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "make": "Apple",
+                "model": "iPhone 6s",
+                "software": "12.4.1",
+                "time": "2020:07:01 23:36:50"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f2916222a50ff22c63be898",
+        "result": {
+            "code": 500,
+            "details": "cannot identify image file <_io.BytesIO object at 0x7f7c5f87eaf0>",
+            "message": "ServerError",
+            "type": "ServerError"
+        }
+    },
+    {
+        "_id": "5f2918052a50ff22c63be89d",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "latitude": null,
+                "longitude": null,
+                "make": "Apple",
+                "model": "iPhone SE (2nd generation)",
+                "software": "Instagram",
+                "time": "2020:08:04 09:09:14"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    },
+    {
+        "_id": "5f2a67ad2a50ff22c63be8a3",
+        "result": {
+            "cin_id_barcode": "*****285",
+            "cin_id_ocr": "*****285",
+            "cin_nb_barcode": "*****2850230140619",
+            "description": "Success!",
+            "face_match": true,
+            "issuance_day": "14",
+            "issuance_month": "06",
+            "issuance_year": "19",
+            "kyc_recommendation": "accepted",
+            "metadata": {
+                "latitude": null,
+                "longitude": null,
+                "make": "Apple",
+                "model": "iPhone SE (2nd generation)",
+                "software": "Instagram",
+                "time": "2020:08:04 09:09:14"
+            },
+            "score": 0,
+            "two_factor_verif": true,
+            "verif_back": true,
+            "verif_front": true
+        }
+    }
+]
+
+                </code></pre>
+                    <h4>QUERY PARAMETERS</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>public_key</td>
+                                <td>String</td>
+                                <td>Your public key</td>
+                            </tr>
+                            
+
+                            <tr>
+                                <td>private_key</td>
+                                <td>String</td>
+                                <td>Your private key</td>
+                            </tr>
+
+                        </tbody>
+                    </table>                    
+                </div>
+
+                <div class="overflow-hidden content-section" id="content-get-characters">
+                    <h2 id="results-examples">Results example</h2>
 
                     <p>
-                       This case represents when the selfie and the image from the id are not identical<br>
-                        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
+                       These are examples of some possible values for the result object<br>
                         
                     </p>
                     <br>
                     <pre><code class="json">
-Result example :
+
+Wrong public_key :
+
+{
+    "type": "NotFoundError",
+    "message": "NotFoundError",
+    "stack": [],
+    "details": "User not found. Please register"
+}
+
+
+===========================
+
+
+
+Wrong private_key :
+
+{
+    "type": "ValidationError",
+    "message": "ValidationError",
+    "stack": [],
+    "details": "Wrong Private key"
+}
+
+
+===========================
+
+
+
+Wrong Selfie :
 
 {
     "description": "Faces are not identical",
@@ -326,6 +657,126 @@ Result example :
     "verif_front": true
 }
 
+
+===========================
+
+
+Wrong back :
+
+{
+    "description": "Back is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": true
+}
+
+
+=====================
+
+
+
+Back and selfie not valid:
+
+{
+    "description": "Back is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": true
+}
+
+
+===========================
+
+
+
+Wrong front :
+
+{
+    "description": "Front is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": false
+}
+
+
+===========================
+
+
+
+Wrong front and selfie :
+
+{
+    "description": "Front is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": false
+}
+
+
+===========================
+
+
+
+Wrong front back and selfie :
+
+{
+    "description": "Front is not valid",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": false,
+    "verif_front": false
+}
+
+
+===========================
+
+
+
+Non identical faces :
+
+{
+    "description": "Faces are not identical",
+    "face_match": false,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": true,
+    "verif_front": true
+}
+
+
+===========================
+
+
+
+Front and back are not compatible :
+
+{
+    "cin_id_barcode": "07403519",
+    "cin_id_ocr": "*****285",
+    "cin_nb_barcode": "074035190106141204",
+    "description": "Front and Back are not compatible",
+    "face_match": true,
+    "kyc_recommendation": "rejected",
+    "score": 0,
+    "two_factor_verif": false,
+    "verif_back": true,
+    "verif_front": true
+}
                 </code>
             </pre>
 
@@ -549,7 +1000,7 @@ Result example :
 
 {
     "cin_id_barcode": "07403519",
-    "cin_id_ocr": "09634285",
+    "cin_id_ocr": "*****285",
     "cin_nb_barcode": "074035190106141204",
     "description": "Front and Back are not compatible",
     "face_match": true,
@@ -567,185 +1018,30 @@ Result example :
 </div>
 
 
-<div class="overflow-hidden content-section" id="content-get-characters">
-    <h2 id="wrong-public_key"> Invalid public_key </h2>
-
-    <p>
-        When providing invalid public key<br>
-        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
-    </p>
-    <br>
-    <pre><code class="json">
-Result example :
-
-{
-    "type": "NotFoundError",
-    "message": "NotFoundError",
-    "stack": [],
-    "details": "User not found. Please register"
-}
-
-</code>
-</pre>
-
-   
-</div>
-
-
-
-<div class="overflow-hidden content-section" id="content-get-characters">
-    <h2 id="wrong-private_key"> Invalid private_key </h2>
-
-    <p>
-        When providing invalid private key<br>
-        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
-    </p>
-    <br>
-    <pre><code class="json">
-Result example :
-
-{
-    "type": "ValidationError",
-    "message": "ValidationError",
-    "stack": [],
-    "details": "Wrong Private key"
-}
-
-</code>
-</pre>
-
-   
-</div>
 
 
 
 
-<div class="overflow-hidden content-section" id="content-get-characters">
-    <h2 id="wrong-barcode_tolerance"> Invalid barcode tolerance </h2>
-
-    <p>
-        When providing invalid barcode tolerance<br>
-        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
-    </p>
-    <br>
-    <pre><code class="json">
-Result example :
-
-{
-    "type": "ValidationError",
-    "message": "ValidationError",
-    "stack": [],
-    "details": "unvalid barcode tolerance"
-}
-
-</code>
-</pre>
-
-   
-</div>
-
-
-
-<div class="overflow-hidden content-section" id="content-get-characters">
-    <h2 id="invalid-ocr_tolerance"> Invalid ocr tolerance </h2>
-
-    <p>
-        When providing invalid ocr tolerance<br>
-        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
-    </p>
-    <br>
-    <pre><code class="json">
-Result example :
-
-{
-    "type": "ValidationError",
-    "message": "ValidationError",
-    "stack": [],
-    "details": "unvalid ocr tolerance"
-}
-
-</code>
-</pre>
-
-   
-</div>
-
-
-<div class="overflow-hidden content-section" id="content-get-characters">
-    <h2 id="invalid-front_tolerance"> Invalid front tolerance </h2>
-
-    <p>
-        When providing invalid front tolerance<br>
-        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
-    </p>
-    <br>
-    <pre><code class="json">
-Result example :
-
-{
-    "type": "ValidationError",
-    "message": "ValidationError",
-    "stack": [],
-    "details": "unvalid Front tolerance"
-}
-
-</code>
-</pre>
-
-   
-</div>
-
-
-<div class="overflow-hidden content-section" id="content-get-characters">
-    <h2 id="invalid-back_tolerance"> Invalid back tolerance </h2>
-
-    <p>
-        When providing invalid back tolerance<br>
-        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
-    </p>
-    <br>
-    <pre><code class="json">
-Result example :
-
-{
-    "type": "ValidationError",
-    "message": "ValidationError",
-    "stack": [],
-    "details": "unvalid Back tolerance"
-}
-
-</code>
-</pre>
-
-   
-</div>
 
 
 
 
-<div class="overflow-hidden content-section" id="content-get-characters">
-    <h2 id="face_match_tolerance"> Invalid face_match tolerance </h2>
 
-    <p>
-        When providing invalid face_match tolerance<br>
-        <code class="higlighted">https://api.kernelsnap.com/api/verify</code>
-    </p>
-    <br>
-    <pre><code class="json">
-Result example :
 
-{
-    "type": "ValidationError",
-    "message": "ValidationError",
-    "stack": [],
-    "details": "unvalid Face match tolerance"
-}
 
-</code>
-</pre>
 
-   
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
             <div class="content-code"></div>

@@ -148,9 +148,9 @@ request(options, function (error, response) {
 ### Case 1 : All data is valid
 ```javascript
 {
-    "cin_id_barcode": "09634285",
-    "cin_id_ocr": "09634285",
-    "cin_nb_barcode": "096342850230140619",
+    "cin_id_barcode": "*****285",
+    "cin_id_ocr": "*****285",
+    "cin_nb_barcode": "*****2850230140619",
     "description": "Success!",
     "face_match": true,
     "issuance_day": "14",
@@ -290,7 +290,7 @@ request(options, function (error, response) {
 ```javascript
 {
     "cin_id_barcode": "07403519",
-    "cin_id_ocr": "09634285",
+    "cin_id_ocr": "*****285",
     "cin_nb_barcode": "074035190106141204",
     "description": "Front and Back are not compatible",
     "face_match": true,
